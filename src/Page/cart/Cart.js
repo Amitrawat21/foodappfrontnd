@@ -55,7 +55,7 @@ import "./cart.css";
         if (paymentRes.data.success) {
           setPaymentSuccessful(true);
           
-          toast.success("Added to cart!", {
+          toast.success("thank you for order!!", {
             position: "top-right",
             className: 'my-toast-class-cart'
           });
