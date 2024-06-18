@@ -1,0 +1,177 @@
+.Checkout_container {
+  background-color: rgb(239, 239, 239);
+  margin-top: 3.7rem;
+  padding: 50px;
+}
+.Checkout_container h2 {
+  font-size: 40px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: inherit;
+
+
+}
+
+.checkout_wrapper {
+  background-color: #ffffff;
+  margin-top: 40px;
+  padding: 40px;
+
+  width: 100%;
+}
+
+.uppar_wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.uppar_wrapper_left{
+    padding: 8px;
+    background-color: rgb(234, 234, 234);
+    border-radius: 15px;
+    display: flex;
+    gap: 10px;
+}
+.trackorder{
+    background-color: rgb(235, 178, 109);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 0px 15px;
+   border-radius: 15px;
+   color: white;
+  
+}
+
+.allOrderProduct{
+    display: flex;
+    flex-direction: column;
+ 
+   
+}
+
+.singleOrderProduct{
+    display: flex;
+    flex-direction:  column;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 
+    0 6px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 60px;
+    padding: 20px 50px;
+}
+
+.product_desc{
+    display: flex;
+   
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+
+}
+
+.productdechLeft{
+   flex: 3;
+  
+}
+
+.productdechRight{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+ 
+
+}
+
+.productdechRight :first-child{
+    color: rgb(201, 201, 201);
+}
+
+.full_desc{
+    display: flex;
+    gap: 15px;
+
+     
+}
+.full_desc img{
+    width: 110px;
+    height: 130px;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+   justify-content: space-between;
+   padding: 2px 4px;
+   
+}
+.other_detail{
+    display: flex;
+    gap: 20px;
+}
+.other_detail h3{
+    color: gray;
+    font-size: 15px;
+}
+.other_detail p{
+    font-weight: 500;
+   
+}
+
+.uppar_detail{
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+
+.uppar_detail h3 {
+    color: rgb(26, 24, 24);
+    font-style: unset;
+  
+
+}
+.uppar_detail p{
+    color: gray;
+}
+
+hr{
+   width: 98%;
+   color: black;
+   margin: 30px;
+}
+
+.lower{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 35px;
+
+}
+
+.lower button{
+    background-color: red;
+    color: white;
+    border-radius: 15px;
+    border:  none;
+    padding: 5px 8px;
+}
+.my-toast-class{
+    margin-top: 100px;
+    width: 770px;
+}
+
+
+@media (max-width: 500px) {
+  .Checkout_container {
+    padding: 20px;
+    width: 780px;
+    margin-top: 80px;
+ width: 780px;
+ 
+  }
+
+  .my-toast-class{
+    margin-top: 100px;
+    width: 770px;
+}
+
+
+
+}

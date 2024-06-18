@@ -1,0 +1,146 @@
+.foodCatalog-container {
+    width: 100%;
+    margin-top: 5rem;
+}
+
+.foodCatalog-wrapper {
+    width: 85%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.catalog_title {
+    margin-bottom: 5rem;
+    margin-top: 3rem;
+    font-size: 36px;
+    color: #f00;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.Catalog_foods {
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 100px;
+}
+
+.catalog_food {
+    text-decoration: none;
+    color: inherit;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 5px -2px rgb(0, 0, 0);
+}
+
+.imgContainer {
+    width: 450px;
+    height: 350px;
+    overflow: hidden;
+}
+
+.imgContainer > img {
+    transition: 250ms all;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.imgContainer > img:hover {
+    scale: 1.1;
+}
+
+.foodDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 10px;
+    gap: 5px;
+}
+
+.foodTitle {
+    font-size: 24px;
+    text-transform: capitalize;
+    color: #f00;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.catalog_price {
+    font-size: 24px;
+    font-weight: 500;
+   
+}
+
+.catalog_price > span {
+    font-size: 20px;
+    color: #f00;
+}
+
+.noQuantity {
+    text-align: center;
+    margin-top: 2.5rem;
+    font-weight: bold;
+    font-size: 40px;
+    margin-bottom: 12.5rem;
+}
+
+.loader-container {
+    margin-top: 10rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 500px) {
+    .foodCatalog-wrapper {
+        width: 780px;
+    }
+
+    .catalog_title {
+        font-size: 45px;
+        margin-bottom: 3rem;
+       
+    }
+
+    .Catalog_foods {
+        flex-direction: column; /* Change to column for single row layout */
+        align-items: center; /* Center align items */
+        gap: 20px;
+    }
+
+    .catalog_food {
+        width: 100%; /* Make each catalog item take full width */
+        max-width: 350px; /* Optional: to control the max width */
+    }
+
+    .imgContainer {
+       width: 100px;
+       height: 100px;
+    }
+    .imgContainer img {
+        width: 100px;
+        height: 100px;
+     }
+
+    .foodTitle {
+        font-size: 30px;
+    }
+
+    .catalog_price {
+        font-size: 35px;
+    }
+
+    .catalog_price > span {
+        font-size: 35px;
+    }
+
+    .noQuantity {
+        font-size: 30px;
+        margin-top: 2rem;
+        margin-bottom: 8rem;
+    }
+}

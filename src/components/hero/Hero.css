@@ -1,0 +1,160 @@
+.containerr{
+    height: calc(100vh - 60px);
+    width: 100%;
+    margin-top: 3.5rem;
+    margin-bottom: -5.5rem;
+}
+
+.wrapper{
+    height: 100%;
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 15rem;
+}
+
+.titlee{
+    color: #f00;
+    font-size: 38px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    white-space: nowrap;
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.firstMsg{
+    margin-bottom: 24px;
+    font-size: 32px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.firstMsg > span{
+    color: #f00;
+    font-weight: bold;
+    font-size: 26px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.secondMsg{
+    font-size: 26px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.secondMsg > span{
+    font-weight: bold;
+    color: rgb(221, 33, 33);
+}
+
+.desc{
+    color: #555;
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 50px;
+    max-width: 350px;
+    line-height: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.buttons{
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.buttons > button{
+    outline: none;
+    border: 1px solid transparent;
+    padding: 0.5rem 1.25rem;
+    color: #fff;
+    background-color: #f00;
+    border-radius: 8px;
+    font-size: 18px;
+    transition: 150ms all;
+    cursor: pointer;
+}
+
+.buttons>button:hover{
+    border-color: #f00;
+    background-color: #fff;
+    color: #f00;
+}
+
+.buttonSee > a{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* left */
+.left{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 2rem;
+}
+
+/* right */
+.amitimg{
+   flex: 1;
+
+}
+
+.manEatingImg{
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+@media(max-width :500px){
+    .containerr{
+      
+        margin-top: 400px;
+   
+   
+  
+    }
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+       
+        width: 750px;
+        gap: 30px;
+        
+        
+       
+    }
+    .hero_wrapper .titlee{
+        color: red;
+        font-size: 40px;
+    }
+    .titlee{
+        font-size: 45px;
+    }
+    .firstMsg{
+        font-size: 40px;
+    }
+    
+    .secondMsg{
+        font-size: 35px;
+    }
+    .desc{
+        font-size: 30px;
+        margin-top: 30px;
+        width: 100%;
+    }
+
+   
+}
+
+

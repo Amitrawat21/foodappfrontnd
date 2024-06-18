@@ -1,0 +1,224 @@
+.loginContainer{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(248, 248, 248);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+}
+
+.loginWrapper{
+    border-radius: 20px;
+    width: 45vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginLeftSide{
+    flex: 1;
+    width: 50%;
+    height: 100%;
+}
+
+.leftImg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.loginRightSide{
+    margin: 0;
+    flex: 1;
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.loginRightSide > h2{
+    text-align: center;
+    font-size: 36px;
+    color: #f22a2a;
+    margin: 2.5rem 0;
+}
+
+.loginRightSide > .loginForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.loginForm{
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+}
+
+.loginForm > input{
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #333;
+    width: 70%;
+    padding-left: 0.25rem;
+    padding-bottom: 0.25rem;
+    transition: 180ms all ease-in-out;
+    font-size: 18px;
+}
+.loginForm .para{
+    margin-top: -20px;
+    width: 70%;
+    text-align: left;
+   
+       
+   }
+
+.loginForm > input:focus{
+    padding-left: 0.75rem;
+}
+
+.loginForm > .submitBtn{
+    margin-top: 2.5rem;
+    outline: none;
+    border: 1px solid transparent;
+    padding: 0.5rem 1.5rem;
+    background-color: #f22a2a;
+    color: #fff;
+    font-weight: 500;
+    font-size: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.loginForm > .submitBtn:hover{
+    border-color: #f22a2a;
+    color: #f22a2a;
+    background-color: #fff;
+}
+
+.loginForm > p{
+    text-align: center;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.loginForm > p > a{
+    text-decoration: none;
+    font-size: 17px;
+    color: #888;
+    margin-top: 0.25rem;
+}
+
+.errorMessage{
+    height: 70px;
+    width: 250px;
+    text-align: center;
+    border-radius: 20px;
+    line-height: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #000;
+    color: #fff;
+    position: absolute;
+    top: 5rem;
+    right: 5rem;
+    font-weight: 500;
+}
+
+/* Media Query for max-width 800px */
+@media (max-width: 800px) {
+    .loginWrapper {
+        width: 80vw;
+        
+        flex-direction: column;
+        margin-top: 10vh;
+        padding-bottom: 10px;
+    }
+
+    .loginLeftSide {
+        width: 100%;
+        height: 50%;
+    }
+
+    .loginRightSide {
+        width: 100%;
+        height: 50%;
+    }
+
+    .loginForm {
+        margin-top: 2rem;
+        width: 90%;
+    }
+
+    .loginForm > input {
+        width: 90%;
+        font-size: 16px;
+    }
+
+    .loginForm > .submitBtn {
+        font-size: 18px;
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Media Query for max-width 500px */
+@media (max-width: 500px) {
+    .loginWrapper {
+        width: 90vw;
+        height: auto;
+        flex-direction: column;
+    }
+
+   
+    .loginRightSide {
+        width: 100%;
+        height: auto;
+    }
+
+  
+
+    .loginForm {
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    .loginForm > input {
+     
+        font-size: 14px;
+        margin-top: 1px;
+        padding: 0 4px ;
+    }
+    .loginForm .para{
+    
+        width: 90%;
+        text-align: start;
+    }
+
+    .loginForm > .submitBtn {
+        font-size: 16px;
+        padding: 0.5rem 1rem;
+        margin-top: 10px;
+    }
+
+    .loginRightSide > h2 {
+        font-size: 24px;
+        margin: 1.5rem 0;
+    }
+
+    .errorMessage {
+        top: 2rem;
+        right: 2rem;
+        width: 200px;
+        font-size: 14px;
+    }
+}

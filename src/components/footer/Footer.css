@@ -1,0 +1,117 @@
+/* Footer Container */
+.Footer_container {
+    width: 100%;
+    padding: 2.5rem 0;
+    background-color: #f8f8f8;
+    margin-top: 7.5rem;
+    border-top: 1px solid #ddd;
+}
+
+/* Footer Wrapper */
+.footer_wrapper {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+/* Column Styling */
+.col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center;
+}
+
+.col:nth-child(2) {
+    align-items: center;
+}
+
+.col:last-child {
+    align-items: flex-end;
+}
+
+/* Title Styling */
+.title {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Footer List Styling */
+.Footer_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #555;
+    font-size: 1rem;
+}
+
+.Footer_list > li {
+    margin-bottom: 0.5rem;
+}
+
+.Footer_list .workingTime {
+    color: #000;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* Icon List Styling */
+.iconList {
+    display: flex;
+    gap: 1rem;
+    font-size: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.iconList > li:hover {
+    color: #555;
+}
+
+/* Attribution Styling */
+.attribution {
+    margin-top: 2rem;
+    color: #333;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.attribution a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.attribution a:hover {
+    color: #000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer_wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .col {
+        align-items: center;
+        text-align: center;
+    }
+
+    .attribution {
+        margin-left: 0;
+        align-items: center;
+    }
+}

@@ -1,0 +1,261 @@
+.foodDetail_container{
+    height: 100%;
+    width: 100%;
+    margin-top: 7rem;
+}
+
+.foodDetail_wrapper{
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 125px;
+   
+}
+
+/* left */
+ .left{
+    width: 50%;
+    height: 100%;
+ 
+}
+
+.left > img{
+    height: 500px;
+    width: 625px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* right */
+.fooddetail_right{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: flex-start;
+    margin-bottom: auto;
+    margin-top: 1.5rem;
+
+}
+
+.titlee{
+    font-size:40px;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-transform: capitalize;
+}
+
+.quantity{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 20px;
+}
+
+.quantity > button{
+    padding: 0.5rem 1rem;
+    border: 1px solid #333;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.quantity > button:disabled{
+    background-color: #999;
+    color: #ede8e8;
+    cursor: not-allowed;
+}
+
+.quantity > .quantityNumber{
+    padding: 0;
+    border: none;
+    cursor: default;
+}
+
+.quantity > button:hover{
+    background-color: #e0d8d8;
+}
+
+.productDesc{
+    margin-top: 40px;
+}
+
+.productDesc > div{
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 500;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.productDesc > p{
+    color: #555;
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+.category{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 30px 0;
+}
+
+.category > h3{
+    font-size: 26px;
+    font-weight: 500;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.category > .categoryName{
+    padding: 0.5rem 1.5rem;
+    background-color: #f00;
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-size: 18px;
+    text-transform: capitalize;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.category > .categoryName:hover{
+    border-color: #f00;
+    background-color: #fff;
+    color: #f00;
+}
+
+.price{
+    font-size: 28px;
+    color: #f00;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.price > span{
+    font-size: 24px;
+}
+
+.addToCart{
+    outline: none;
+    border: 1px solid transparent;
+    padding: 0.5rem 1.5rem;
+    margin-top: 2rem;
+    background-color: #f00;
+    color: #fff;
+    border-radius: 20px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.addToCart:hover{
+    border-color: #f00;
+    color: #f00;
+    background-color: #fff;
+}
+
+.my-toast-class-fooddetail{
+    margin-top: 70px;
+}
+
+@media (max-width: 500px) {
+    .foodDetail_container{
+        margin-top: 8rem;
+        width: 780px;
+    
+        
+    }
+
+    .foodDetail_wrapper{
+        width: 90%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
+        
+    }
+
+    .left > img{
+        width: 200%;
+        margin: 0 auto;
+        height: 400px;
+     
+        margin-right: 300px;
+    }
+
+    .fooddetail_right{
+        width: 90%;
+        align-items: center;
+        margin-top: 1rem;
+        margin: 0 auto;
+    }
+
+    .fooddetail_right  .titlee{
+        font-size: 55px;
+
+        text-align: center;
+     
+    }
+
+    .price{
+        font-size: 50px;
+    }
+
+    .price > span{
+        font-size: 40px;
+    }
+
+    .category > h3{
+        font-size: 40px;
+    }
+
+    .category > .categoryName{
+        font-size: 40px;
+    }
+
+    .productDesc{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .productDesc > div{
+      font-size: 30px;
+
+    }
+
+    .productDesc > p{
+        font-size: 25px;
+    }
+
+    .addToCart{
+        font-size: 40px;
+        padding: 0.5rem 1rem;
+    }
+
+    .quantity{
+        margin-top: 40px;
+    }
+
+    .quantity > button{
+        font-size: 40px;
+      
+    }
+
+    .quantity > .quantityNumber{
+        font-size: 30px;
+    }
+
+    .my-toast-class-fooddetail{
+        margin-top: 100px;
+        width: 770px;
+    }
+}
