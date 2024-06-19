@@ -158,7 +158,7 @@ const Create = () => {
           </div>
           <div className="inputWrapperImage">
             <label htmlFor="image" className="labelFileInput">
-              Image: <span>Upload here</span>
+              Image: {image ? <span style={{backgroundColor : "red"}}>Uploaded </span>  :  <span>Upload here</span> } 
             </label>
             <input
               type="file"
