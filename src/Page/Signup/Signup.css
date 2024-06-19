@@ -185,6 +185,8 @@
     .signUpForm {
         margin-top: 1rem;
         width: 100%;
+        padding-top: 10px;
+        background-color: red;
     }
 
     .signUpForm > input {
