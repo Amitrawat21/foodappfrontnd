@@ -107,8 +107,8 @@
     }
 
     .Catalog_foods {
-        flex-direction: column; /* Change to column for single row layout */
-        align-items: center; /* Center align items */
+         display: grid;
+         grid-template-columns: 1fr 1fr; /* Center align items */
         gap: 20px;
     }
 
