@@ -93,6 +93,9 @@
 .loader-container {
     margin-top: 10rem;
 }
+.my-toast-class-fooddetail{
+    margin-top: 70px;
+}
 
 /* Responsive Styles */
 @media (max-width: 500px) {
@@ -143,4 +146,10 @@
         margin-top: 2rem;
         margin-bottom: 8rem;
     }
+       
+    .my-toast-class-fooddetail{
+        margin-top: 100px;
+        width: 770px;
+    }
+   
 }

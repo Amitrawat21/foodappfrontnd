@@ -7,6 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { login } from "../../Redux/authSlice";
 import validation from "../../Validation/Validation";
 import axios from "axios";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 import "./Login.css";
 
 const Login = () => {
@@ -18,6 +20,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const changeHandler = (e) => {
     const { name, value } = e.target;
@@ -43,6 +46,7 @@ const Login = () => {
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
+      setLoading(true);
       try {
         const res = await axios.post("https://foodappbackend-rjtx.onrender.com/auth/login", formData);
 
@@ -68,12 +72,34 @@ const Login = () => {
         } else {
           toast.error("An error occurred. Please try again.");
         }
+      } finally {
+        setLoading(false);
       }
     }
   };
 
   return (
     <div className="loginContainer">
+      {loading && (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            backgroundColor: "rgba(255, 255, 255, 0.8)",
+            zIndex: 1000,
+          }}
+        >
+          please wait ... &nbsp;
+          <CircularProgress />
+        </Box>
+      )}
+
       <div className="loginWrapper">
         <div className="loginLeftSide">
           <img src={img} className="leftImg" alt="Login Visual" />
@@ -87,7 +113,6 @@ const Login = () => {
               name="email"
               value={formData.email}
               onChange={changeHandler}
-      
             />
             {isSubmitted && errors.email && (
               <p className="para" style={{ color: "red" }}>
@@ -100,14 +125,13 @@ const Login = () => {
               name="password"
               value={formData.password}
               onChange={changeHandler}
-            
             />
             {isSubmitted && errors.password && (
               <p className="para" style={{ color: "red" }}>
                 {errors.password}
               </p>
             )}
-            <button className="submitBtn" type="submit">
+            <button className="submitBtn" type="submit" disabled={loading}>
               Login
             </button>
             <p>

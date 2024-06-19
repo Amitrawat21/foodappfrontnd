@@ -3,7 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { TailSpin } from "react-loader-spinner";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./FoodCatalog.css";
 
 const FoodCatalog = () => {
@@ -12,16 +13,36 @@ const FoodCatalog = () => {
   const [showContent, setShowContent] = useState(false); // Add showContent state
   const location = useLocation();
   const foodEndpoint = location.pathname.split("/")[2];
-  console.log(foodEndpoint , "hhhhh")
+  console.log(foodEndpoint, "hhhhh");
   const { token } = useSelector((state) => state.auth);
   const { user } = useSelector((state) => state.auth);
+  const [auth, setAuth] = useState(localStorage.getItem("token"));
+  console.log(token , 'tttoken')
+
+  const handleAuth = () => {
+    if (token == null) {
+      toast.info("please login first!", {
+        position: "top-right",
+       
+        className: 'my-toast-class-fooddetail',
+       
+      });
+    } else {
+     toast.info("Admin cant shop!", {
+      position: "top-right",
+     
+      className: 'my-toast-class-fooddetail',
+     
+    });
+    console.log("hello")
+    }
+  };
 
   useEffect(() => {
     const fetchFoodType = async () => {
       try {
         setLoading(true); // Start loading
-        const res = await axios.get( `https://foodappbackend-rjtx.onrender.com/product?category=${foodEndpoint}`
-        );
+        const res = await axios.get(`https://foodappbackend-rjtx.onrender.com/product?category=${foodEndpoint}`);
         setFilteredFoods(res.data);
       } catch (err) {
         console.error(err);
@@ -74,7 +95,7 @@ const FoodCatalog = () => {
                           </div>
                         </Link>
                       ) : (
-                        <div className="imgContainer">
+                        <div onClick={handleAuth} className="imgContainer">
                           <img
                             src={ele.image}
                             alt={ele.title}
@@ -98,6 +119,7 @@ const FoodCatalog = () => {
           )
         )}
       </div>
+      <ToastContainer autoClose = {1500}  /> {/* Ensure ToastContainer is here */}
     </div>
   );
 };

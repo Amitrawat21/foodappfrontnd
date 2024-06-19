@@ -12,21 +12,30 @@ import ClearIcon from "@mui/icons-material/Clear";
 import HomeIcon from "@mui/icons-material/Home";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import LogoutIcon from '@mui/icons-material/Logout';
+import LogoutIcon from "@mui/icons-material/Logout";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [notAdmin, setNotAdmin] = useState(false);
   const [sidebar, setSideBar] = useState(false);
+  const [loading, setLoading] = useState(false); // Loading state
   const { products } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
 
-  const handleLogout = () => {
-    dispatch(logout());
+  const handleLogout = async () => {
+    setLoading(true); // Set loading to true
+    await dispatch(logout());
     dispatch(resetCart());
-    navigate("/login");
+
+    setTimeout(() => {
+      setLoading(false);
+      navigate("/login");
+    }, 1000); // Set loading to false
+
     setSideBar(false); // Close sidebar on logout
   };
 
@@ -47,6 +56,7 @@ const Navbar = () => {
     } else {
       setNotAdmin(false);
     }
+    setSideBar(false); // Ensure sidebar is closed on login
   }, [user, dispatch]);
 
   useEffect(() => {
@@ -74,7 +84,7 @@ const Navbar = () => {
       <div className="nav_wrapper">
         <div className="left">
           <Link to="/" className="nav_title">
-            <img src={choman} />
+            <img src={choman} alt="Logo" />
           </Link>
         </div>
         <div className="center">
@@ -113,17 +123,18 @@ const Navbar = () => {
             <Link to="/cart" className="cartContainer">
               <AiOutlineShoppingCart className="cartIcon" />
               <div className="cartQuantity">{products?.length}</div>
-              </Link>
+            </Link>
           )}
           <button
             onClick={user ? handleLogout : () => navigate("/login")}
             className="logout"
+            disabled={loading} // Disable button when loading
           >
-            {user ? "Logout" : "Login"}
+            {loading ? "Logging out..." : user ? "Logout" : "Login"}
           </button>
           {user && (
             <Avatar style={{ height: "30px", width: "30px" }}>
-           {user?.isAdmin ? "AD" : user?.username[0].toUpperCase()}
+              {user?.isAdmin ? "AD" : user?.username[0].toUpperCase()}
             </Avatar>
           )}
         </div>
@@ -178,9 +189,28 @@ const Navbar = () => {
 
         {sidebar && <div className="sidebar-overlay" onClick={hideSideBar}></div>}
       </div>
+
+      {loading && (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            backgroundColor: "rgba(255, 255, 255, 0.8)",
+            zIndex: 1000,
+          }}
+        >
+          <div style={{ fontSize: "40px", marginRight: "10px" }}>Loading...</div>
+          <CircularProgress size={70} /> {/* Increased size */}
+        </Box>
+      )}
     </div>
   );
 };
 
 export default Navbar;
-

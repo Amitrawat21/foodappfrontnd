@@ -8,6 +8,8 @@ import { register } from '../../Redux/authSlice';
 import './Signup.css';
 import validation from '../../Validation/Validation';
 import axios from 'axios';
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -18,6 +20,7 @@ const Signup = () => {
   const [errors, setErrors] = useState({});
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const changeHandler = (e) => {
@@ -44,6 +47,7 @@ const Signup = () => {
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
+      setLoading(true);
       try {
         const res = await axios.post('https://foodappbackend-rjtx.onrender.com/auth/register', formData);
         console.log(res);
@@ -59,14 +63,10 @@ const Signup = () => {
         }
       } catch (error) {
         if (error.response) {
-
-           if(error.response.status === 403){
-            toast.error("email is already  incorrect");
-
-           }
-
-          else if (error.response.status === 401) {
-           
+          if (error.response.status === 403) {
+            toast.error("Email is already in use");
+          } else if (error.response.status === 401) {
+            toast.error("Unauthorized access");
           } else {
             toast.error("An unexpected error occurred");
           }
@@ -75,12 +75,34 @@ const Signup = () => {
         } else {
           toast.error("An error occurred. Please try again.");
         }
+      } finally {
+        setLoading(false);
       }
     }
   };
 
   return (
     <div className="signUpContainer">
+      {loading && (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            backgroundColor: "rgba(255, 255, 255, 0.8)",
+            zIndex: 1000,
+          }}
+        >
+          Loading... &nbsp;
+          <CircularProgress />
+        </Box>
+      )}
+
       <div className="signUpWrapper">
         <div className="signUpLeftSide">
           <img src={img} className="leftImg" alt="Signup" />
@@ -106,7 +128,7 @@ const Signup = () => {
               onChange={changeHandler}
             />
             {isSubmitted && errors.email && (
-              <p className='para'  style={{ color: "red" }}>{errors.email}</p>
+              <p className='para' style={{ color: "red" }}>{errors.email}</p>
             )}
             <input
               type="password"
@@ -116,9 +138,9 @@ const Signup = () => {
               onChange={changeHandler}
             />
             {isSubmitted && errors.password && (
-              <p className='para'  style={{ color: "red" }}>{errors.password}</p>
+              <p className='para' style={{ color: "red" }}>{errors.password}</p>
             )}
-            <button className="submitBtn" type="submit">
+            <button className="submitBtn" type="submit" disabled={loading}>
               Sign Up
             </button>
             <p>Already have an account? <Link to="/login">Login</Link></p>
