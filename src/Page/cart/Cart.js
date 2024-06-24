@@ -26,9 +26,9 @@ import "./cart.css";
   products?.map((product) => (totalPrice += product.quantity * product.price));
 
   const handleRemoveProduct = (id) => {
-    dispatch(removeProduct({ id, email: user.email }))
+    dispatch(removeProduct({ id, email: user?.email }))
       .then(() => {
-        dispatch(fetchCart(user.email));
+        dispatch(fetchCart(user?.email));
         toast.success("remove from cart  successfully!", {
           position: "top-right",
           className: 'my-toast-class-cart'
@@ -77,7 +77,7 @@ import "./cart.css";
       const addOrder = async () => {
         try {
           const res = await axios.post("https://foodappbackend-rjtx.onrender.com/addOrder", {
-            email: user.email,
+            email: user?.email,
             orderList: products,
           });
           if(res.data.success){
@@ -93,10 +93,10 @@ import "./cart.css";
   }, [paymentSuccessful]);
 
   useEffect(() => {
-    if (user.email) {
-      dispatch(fetchCart(user.email));
+    if (user?.email) {
+      dispatch(fetchCart(user?.email));
     }
-  }, [dispatch, user.email]);
+  }, [dispatch, user?.email]);
 
  
 

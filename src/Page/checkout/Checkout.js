@@ -42,7 +42,7 @@ const Checkout = () => {
       }
     };
     fetchOrder();
-  }, [token, user.email]);
+  }, [token, user?.email]);
 
   return (
     <div className="Checkout_container">
